@@ -71,12 +71,19 @@ $ git push orgin master // 자기 계정의 원격 repository에 push
 
 ### 9. pull request 승인이 되면 자기 자신의 내용이 원본에 잘 올라 갔는지 확인
 
+
+
 ### 10. 다음번 문제를 풀기전 꼭 원본 저장소에서 pull 을 받아 자신의 repository와 동기화가 잘 됬는지 확인!!
 
 ```
 $ git pull mainorepo[원본 저장소 별칭] master(원격에 있는 원본 저장소에 있는 것을 가져옴)
 ```
 
+* git push origin master를 이용하여 자신 계정의 github 사이트도 동기화
+
+```
+$ git push origin master
+```
 ---
 
 ## :octocat: Sourcetree를 이용하여 진행하기
