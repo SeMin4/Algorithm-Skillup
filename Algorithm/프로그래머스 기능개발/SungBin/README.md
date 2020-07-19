@@ -3,6 +3,6 @@
 ---
 
 ### 해결 사진
-![sol](./image/sol.png)
+![sol](./image/sol.PNG)
 ### 주요 알고리즘
 그런거 없음..
