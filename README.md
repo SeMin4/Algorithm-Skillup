@@ -43,6 +43,6 @@
 |번호|문제|
 |:---:|:---:|
 |1|[경주로 건설](https://programmers.co.kr/learn/courses/30/lessons/67259) |
-|2| - |
+|2|[뱀](https://www.acmicpc.net/problem/3190) |
 |3| - |
 |4| - |
