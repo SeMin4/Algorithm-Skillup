@@ -1,629 +1,304 @@
 #include <iostream>
 #include <algorithm>
-#include <stack>
-#include <vector>
-using namespace std;
-/*dfs 이용해서 매순간 4방향 탐색으로 진행했는데 dfs 함수가 리턴될경우 제값으로 안돌아오는게 문제인지, 이동과정에서 실수가있는건지 모르겠음.*/
 
-vector<vector <int>> init(vector<vector<int>> &arr, int n);
-vector<vector <int>> input(vector<vector<int>>& arr, int n);
-void dfs(vector<vector <int>> arr, int n);
-vector<vector <int>> up_push(vector<vector<int>>& arr, int n);
-vector<vector <int>> left_push(vector<vector <int>>& arr, int n);
-vector<vector <int>> right_push(vector<vector <int>>& arr, int n);
-vector<vector <int>> down_push(vector<vector <int>>& arr, int n);
-void search(vector<vector <int>> arr, int n, int dir);
-int row, col;
+
+using namespace std;
+int** make_array(int** arr, int n);
+int** init_array(int** arr, int n);
+int** push(int** arr, int n, int dir);
 int result = 0;
-int up = 1;
-int ri = 3;
-int down = 5;
-int le = 7;
-int check_cnt = 0;
-stack <int> a;
-pair<int**, int> check;
-vector <int> test;
-vector<vector<int>> tmp;
+void dfs(int depth, int** arr, int n);
 int main()
 {
+	int** arr = 0;
 
 	int n;
-
-	
-	vector<vector <int>> board;
 	cin >> n;
 
-	board = init(board, n);
-	board = input(board, n);
-	a.push(up);
-	a.push(ri);
-	a.push(down);
-	a.push(le);
-	dfs(board, n);
+	arr = make_array(arr, n);
+	arr = init_array(arr, n);
 
 
-
+	dfs(0, arr, n);
 
 	cout << result << endl;
-	
-
 
 	return 0;
+
 }
-void search(vector<vector <int>> arr, int n)
+void dfs(int depth, int** arr, int n)
 {
-	int dir;
-	dir = a.top();
-	a.pop();
-	check_cnt++;
-	if (check_cnt > 5)
+
+	if (depth == 5)
+	{
+		for (int i = 0; i < n; i++)
+		{
+			for (int j = 0; j < n; j++)
+				if (arr[i][j] > result)
+					result = arr[i][j];
+		}
 		return;
-	if (check_cnt == 5)
-	{
-		for (int i = 0; i < n; i++)
-		{
-			for (int j = 0; j < n; j++)
-			{
-				if (arr[i][j] > result)
-					result = arr[i][j];
-			}
-		}
 	}
-	for (int i = 0; i < n; i++)
+	for (int i = 1; i <= 4; i++)
 	{
-		for (int j = 0; j < n; j++)
-		{
-			vector<int> row(n);
-			tmp.push_back(row);
-		}
+		int** temp = 0;
+		temp = make_array(arr, n);
+		temp = push(arr, n, i);
+		dfs(depth + 1, temp, n);
 	}
-	int k;
-	int flag = false;
-	int cnt = 0;
-	int check = 0;
+}
+int** push(int** arr, int n, int dir)
+{
 
-	switch (dir) 
-	{
-	case 1:
-	
+	int** return_map = 0;
+	return_map = make_array(return_map, n); // 리턴할 배열 
+	switch (dir) {
+	case 1: //위
+		for (int i = 0; i < n; i++) //0인공간 다 비워줌
+		{
+			for (int j = 0, cnt = 0; j < n; j++, cnt++)
+			{
+				if (arr[j][i] == 0) //0일경우
+				{
+					while (arr[j][i] == 0 && j < n - 1)
+					{
+						j++;
+					}
+					return_map[cnt][i] = arr[j][i];
+					//arr[j][i] = 0;
+				}
+				else
+				{
+					return_map[cnt][i] = arr[j][i];
+					//arr[j][i] = 0;
+				}
+			}
+		} //0인공간 없애버린것 
 		for (int i = 0; i < n; i++)
 		{
-			cnt = 0;
-			for (int j = 0; j < n; j++)
+			for (int j = 0, cnt = 0; j < n; j++, cnt++)
 			{
-				if (arr[j][i] != 0)
-					cnt++;
-			}
-			check = 0;
-			for (int j = 0; j < n - 1; j++)
-			{
-				if (check == cnt)
-					break;
-				if (arr[j][i] == 0)
+				if (return_map[cnt][i] == 0)
 				{
-					k = j + 1;
-					while (k < n)
+					int temp = cnt;
+					for (j = cnt + 1; j < n; j++)
 					{
-						if (arr[k][i] != 0)
+						if (return_map[j][i] != 0)
 						{
-							arr[j][i] = arr[k][i];
-							arr[k][i] = 0;
-							check++;
-							break;
+							return_map[temp++][i] = return_map[j][i];
+							return_map[j][i] = 0;
 						}
-						k++;
 					}
+					return_map[n - 1][i] = 0;
+					j = cnt;
+
 				}
-			}
-			for (int j = 0; j < n - 1; j++)
-			{
-				k = j + 1;
-				if (arr[j][i] == arr[k][i])
+				if (cnt != n - 1 && (return_map[cnt][i] == return_map[cnt + 1][i]))
 				{
-					arr[j][i] *= 2;
-					arr[k][i] = 0;
-					if (arr[j][i] != 0)
-						flag = true;
+
+					return_map[cnt][i] *= 2;
+					return_map[cnt + 1][i] = 0;
+
+
 				}
-				if (arr[j][i] == 0)
-				{
-					arr[j][i] = arr[k][i];
-					arr[k][i] = 0;
-				}
+
 			}
 		}
 		break;
-	case 3:
+	case 2: //오른쪽
+		for (int i = 0; i < n; i++) //0인공간 다 비워줌
+		{
+			for (int j = n - 1, cnt = n - 1; j >= 0; j--, cnt--)
+			{
+				if (arr[i][j] == 0) //0일경우
+				{
+					while (arr[i][j] == 0 && j > 0)
+					{
+						j--;
+					}
+					return_map[i][cnt] = arr[i][j];
+					//arr[j][i] = 0;
+				}
+				else
+				{
+					return_map[i][cnt] = arr[i][j];
+					//arr[j][i] = 0;
+				}
+			}
+		} //0인공간 없애버린것 
 
 		for (int i = 0; i < n; i++)
 		{
-			cnt = 0;
-			for (int j = 0; j < n; j++)
+			for (int j = n - 1, cnt = n - 1; j >= 0; j--, cnt--)
 			{
-				if (arr[i][j] != 0)
-					cnt++;
-			}
-			check = 0;
-			for (int j = n - 1; j > 0; j--)
-			{
-				if (check == cnt)
-					break;
-				if (arr[i][j] == 0)
+				if (return_map[i][cnt] == 0)
 				{
-					k = j - 1;
-					while (k >= 0)
+					int temp = cnt;
+					for (j = cnt - 1; j >= 0; j--)
 					{
-						if (arr[i][k] != 0)
+						if (return_map[i][j] != 0)
 						{
-							arr[i][j] = arr[i][k];
-							arr[i][k] = 0;
-							check++;
-							break;
+							return_map[i][temp--] = return_map[i][j];
+							return_map[i][j] = 0;
 						}
-						k--;
 					}
+					return_map[i][0] = 0;
+					j = cnt;
+
+				}
+				if (cnt > 0)
+				{
+					if (return_map[i][cnt] == return_map[i][cnt - 1])
+					{
+						return_map[i][cnt] *= 2;
+						return_map[i][cnt - 1] = 0;
+					}
+
 				}
 
-			}
-			for (int j = n - 1; j > 0; j--)
-			{
-				k = j - 1;
-				if (arr[i][j] == arr[i][k])
-				{
-					arr[i][j] *= 2;
-					arr[i][k] = 0;
-					if (arr[i][j] != 0)
-						flag = true;
-				}
-				if (arr[i][j] == 0)
-				{
-					arr[i][j] = arr[i][k];
-					arr[i][k] = 0;
-				}
 			}
 		}
 		break;
-	case 5:
+	case 3: //아래쪽
+		for (int i = 0; i < n; i++) //0인공간 다 비워줌
+		{
+			for (int j = n - 1, cnt = n - 1; j >= 0; j--, cnt--)
+			{
+				if (arr[j][i] == 0) //0일경우
+				{
+					while (arr[j][i] == 0 && j > 0)
+					{
+						j--;
+					}
+					return_map[cnt][i] = arr[j][i];
+					//arr[j][i] = 0;
+				}
+				else
+				{
+					return_map[cnt][i] = arr[j][i];
+					//arr[j][i] = 0;
+				}
+			}
+		} //0인공간 없애버린것 
 
 		for (int i = 0; i < n; i++)
 		{
-			cnt = 0;
-			for (int j = 0; j < n; j++)
+			for (int j = n - 1, cnt = n - 1; j >= 0; j--, cnt--)
 			{
-				if (arr[j][i] != 0)
-					cnt++;
-			}
-			check = 0;
-			for (int j = n - 1; j > 0; j--)
-			{
-				if (check == cnt)
-					break;
-				if (arr[j][i] == 0)
+				if (return_map[cnt][i] == 0)
 				{
-					k = j - 1;
-					while (k >= 0)
+					int temp = cnt;
+					for (j = cnt - 1; j >= 0; j--)
 					{
-						if (arr[k][i] != 0)
+						if (return_map[j][i] != 0)
 						{
-							arr[j][i] = arr[k][i];
-							arr[k][i] = 0;
-							check++;
-							break;
+							return_map[temp--][i] = return_map[j][i];
+							return_map[j][i] = 0;
 						}
-						k--;
 					}
-				}
-			}
-			for (int j = n - 1; j > 0; j--)
-			{
-				k = j - 1;
-				if (arr[j][i] == arr[k][i])
-				{
-					arr[j][i] *= 2;
-					arr[k][i] = 0;
-					if (arr[j][i] != 0)
-						flag = true;
-				}
-				if (arr[j][i] == 0)
-				{
-					arr[j][i] = arr[k][i];
-					arr[k][i] = 0;
-				}
-			}
-		}
+					return_map[0][i] = 0;
+					j = cnt;
 
-		break;
-	case 7:
-
-		for (int i = 0; i < n; i++)
-		{
-			cnt = 0;
-			for (int j = 0; j < n; j++)
-			{
-				if (arr[i][j] != 0)
-					cnt++;
-			}
-			check = 0;
-			for (int j = 0; j < n - 1; j++)
-			{
-				if (check == cnt)
-					break;
-				if (arr[i][j] == 0)
+				}
+				if (cnt > 0)
 				{
-					k = j + 1;
-					while (k < n)
+					if (return_map[cnt][i] == return_map[cnt - 1][i])
 					{
-						if (arr[i][k] != 0)
-						{
-							arr[i][j] = arr[i][k];
-							arr[i][k] = 0;
-							check++;
-							break;
-						}
-						k++;
+						return_map[cnt][i] *= 2;
+						return_map[cnt - 1][i] = 0;
 					}
 
 				}
-			} //일단 옆으로 다 당긴상태 
-			for (int j = 0; j < n - 1; j++)
-			{
-				k = j + 1;
-				if (arr[i][j] == arr[i][k])
-				{
-					arr[i][j] *= 2;
-					arr[i][k] = 0;
-					if (arr[i][j] != 0)
-						flag = true;
-				}
-				if (arr[i][j] == 0)
-				{
-					arr[i][j] = arr[i][k];
-					arr[i][k] = 0;
-				}
+
 			}
 		}
-
 		break;
 
 
-	}
-	if (check_cnt == 5)
-	{
+	case 4: //왼쪽
+		for (int i = 0; i < n; i++) //0인공간 다 비워줌
+		{
+			for (int j = 0, cnt = 0; j < n; j++, cnt++)
+			{
+				if (arr[i][j] == 0) //0일경우
+				{
+					while (arr[i][j] == 0 && j < n - 1)
+					{
+						j++;
+					}
+					return_map[i][cnt] = arr[i][j];
+					//arr[j][i] = 0;
+				}
+				else
+				{
+					return_map[i][cnt] = arr[i][j];
+					//arr[j][i] = 0;
+				}
+			}
+		} //0인공간 없애버린것 
 		for (int i = 0; i < n; i++)
 		{
-			for (int j = 0; j < n; j++)
+			for (int j = 0, cnt = 0; j < n; j++, cnt++)
 			{
-				if (arr[i][j] > result)
-					result = arr[i][j];
-			}
-		}
-	}
-	a.push(up);
-	
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = 0; j < n; j++)
-		{
-			tmp[i][j] = arr[i][j];
-		}
-	}
-
-	search(arr, n);
-	check_cnt--;
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = 0; j < n; j++)
-		{
-			arr[i][j] = tmp[i][j];
-		}
-	}
-	a.push(ri);
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = 0; j < n; j++)
-		{
-			tmp[i][j] = arr[i][j];
-		}
-	}
-
-	search(arr, n);
-	check_cnt--;
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = 0; j < n; j++)
-		{
-			arr[i][j] = tmp[i][j];
-		}
-	}
-	a.push(down);
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = 0; j < n; j++)
-		{
-			tmp[i][j] = arr[i][j];
-		}
-	}
-
-	search(arr, n);
-	check_cnt--;
-
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = 0; j < n; j++)
-		{
-			arr[i][j] = tmp[i][j];
-		}
-	}
-	a.push(le);
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = 0; j < n; j++)
-		{
-			tmp[i][j] = arr[i][j];
-		}
-	}
-
-	search(arr, n);
-	check_cnt--;
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = 0; j < n; j++)
-		{
-			arr[i][j] = tmp[i][j];
-		}
-	}
-
-}
-void dfs(vector<vector <int>> arr, int n)
-{
-		search(arr, n);
-
-
-}
-
-vector<vector <int>> down_push(vector<vector<int>>& arr, int n)
-{
-	int k;
-	int flag = false;
-	int cnt = 0;
-	int check = 0;
-
-	for (int i = 0; i < n; i++)
-	{
-		cnt = 0;
-		for (int j = 0; j < n; j++)
-		{
-			if (arr[j][i] != 0)
-				cnt++;
-		}
-		check = 0;
-		for (int j = n - 1; j > 0; j--)
-		{
-			if (check == cnt)
-				break;
-			if (arr[j][i] == 0)
-			{
-				k = j - 1;
-				while (k >= 0)
+				if (return_map[i][cnt] == 0)
 				{
-					if (arr[k][i] != 0)
+					int temp = cnt;
+					for (j = cnt + 1; j < n; j++)
 					{
-						arr[j][i] = arr[k][i];
-						arr[k][i] = 0;
-						check++;
-						break;
+						if (return_map[i][j] != 0)
+						{
+							return_map[i][temp++] = return_map[i][j];
+							return_map[i][j] = 0;
+						}
+
 					}
-					k--;
+					return_map[i][n - 1] = 0;
+					j = cnt;
+
 				}
-			}
-		}
-		for (int j = n - 1; j > 0; j--)
-		{
-			k = j - 1;
-			if (arr[j][i] == arr[k][i])
-			{
-				arr[j][i] *= 2;
-				arr[k][i] = 0;
-				if (arr[j][i] != 0)
-					flag = true;
-			}
-			if (arr[j][i] == 0)
-			{
-				arr[j][i] = arr[k][i];
-				arr[k][i] = 0;
-			}
-		}
-	}
-	return arr;
-
-}
-vector<vector <int>> up_push(vector<vector <int>> &arr, int n)
-{
-	int k;
-	int flag = false;
-	
-	int cnt = 0;
-	int check = 0;
-	for (int i = 0; i < n; i++)
-	{
-		cnt = 0;
-		for (int j = 0; j < n; j++)
-		{
-			if (arr[j][i] != 0)
-				cnt++;
-		}
-		check = 0;
-		for (int j = 0; j < n - 1; j++)
-		{
-			if (check == cnt)
-				break;
-			if (arr[j][i] == 0)
-			{
-				k = j + 1;
-				while (k < n)
+				if ((return_map[i][cnt] == return_map[i][cnt + 1]) && cnt != n - 1)
 				{
-					if (arr[k][i] != 0)
-					{
-						arr[j][i] = arr[k][i];
-						arr[k][i] = 0;
-						check++;
-						break;
-					}
-					k++;
-				}
-			}
-		}
-		for (int j = 0; j < n - 1; j++)
-		{
-			k = j + 1;
-			if (arr[j][i] == arr[k][i])
-			{
-				arr[j][i] *= 2;
-				arr[k][i] = 0;
-				if (arr[j][i] != 0)
-					flag = true;
-			}
-			if (arr[j][i] == 0)
-			{
-				arr[j][i] = arr[k][i];
-				arr[k][i] = 0;
-			}
-		}
-	}
-	return arr;
+					return_map[i][cnt] *= 2;
+					return_map[i][cnt + 1] = 0;
 
-}
-vector<vector <int>> right_push(vector<vector <int>> &arr, int n)
-{
-	int k;
-	int flag = false;
-	int cnt = 0;
-	int check = 0;
-	for (int i = 0; i < n; i++)
-	{
-		cnt = 0;
-		for (int j = 0; j < n; j++)
-		{
-			if (arr[i][j] != 0)
-				cnt++;
-		}
-		check = 0;
-		for (int j = n - 1; j > 0; j--)
-		{
-			if (check == cnt)
-				break;
-			if (arr[i][j] == 0)
-			{
-				k = j - 1;
-				while (k >= 0)
-				{
-					if (arr[i][k] != 0)
-					{
-						arr[i][j] = arr[i][k];
-						arr[i][k] = 0;
-						check++;
-						break;
-					}
-					k--;
-				}
-			}
-
-		}
-		for (int j = n - 1; j > 0; j--)
-		{
-			k = j - 1;
-			if (arr[i][j] == arr[i][k])
-			{
-				arr[i][j] *= 2;
-				arr[i][k] = 0;
-				if (arr[i][j] != 0)
-					flag = true;
-			}
-			if (arr[i][j] == 0)
-			{
-				arr[i][j] = arr[i][k];
-				arr[i][k] = 0;
-			}
-		}
-	}
-	return arr;
-
-}
-vector<vector <int>>left_push(vector<vector <int>> &arr, int n)
-{
-	int k;
-	int flag = false;
-	int cnt = 0;
-	int check = 0;
-	
-	for (int i = 0; i < n; i++)
-	{
-		cnt = 0;
-		for (int j = 0; j < n; j++)
-		{
-			if (arr[i][j] != 0)
-				cnt++;
-		}
-		check = 0;
-		for (int j = 0; j < n - 1; j++)
-		{
-			if (check == cnt)
-				break;
-			if (arr[i][j] == 0)
-			{
-				k = j + 1;
-				while (k < n)
-				{
-					if (arr[i][k] != 0)
-					{
-						arr[i][j] = arr[i][k];
-						arr[i][k] = 0;
-						check++;
-						break;
-					}
-					k++;
 				}
 
 			}
-		} //일단 옆으로 다 당긴상태 
-		for (int j = 0; j < n - 1; j++)
-		{
-			k = j + 1;
-			if (arr[i][j] == arr[i][k])
-			{
-				arr[i][j] *= 2;
-				arr[i][k] = 0;
-				if (arr[i][j] != 0)
-					flag = true;
-			}
-			if (arr[i][j] == 0)
-			{
-				arr[i][j] = arr[i][k];
-				arr[i][k] = 0;
-			}
 		}
+		break;
+
+
 	}
-	return arr;
+	return return_map;
 
 }
-vector<vector<int>> init(vector<vector<int>> &arr, int n)
+int** make_array(int** arr, int n)
 {
-	
+	arr = (int**)malloc(sizeof(int*) * n);
+
 	for (int i = 0; i < n; i++)
 	{
-		vector<int> temp(n);
-		arr.push_back(temp);
+		arr[i] = (int*)malloc(sizeof(int) * n);
 	}
-	return arr;
-} //배열 초기화
-
-vector<vector<int>> input(vector<vector<int>> &arr, int n)
-{
-
 	for (int i = 0; i < n; i++)
 	{
 		for (int j = 0; j < n; j++)
+		{
+			arr[i][j] = 0;
+		}
+	}
+	return arr;
+}
+
+
+int** init_array(int** arr, int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
 			cin >> arr[i][j];
+		}
 	}
 	return arr;
-} //배열 입력
+}
