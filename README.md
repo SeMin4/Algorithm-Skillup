@@ -36,3 +36,13 @@
 |2|[기능개발](https://programmers.co.kr/learn/courses/30/lessons/42586) |
 |3|[2048(Easy)](https://www.acmicpc.net/problem/12100) |
 |4|[앱](https://www.acmicpc.net/problem/7579) |
+
+
+### 2주차
+
+|번호|문제|
+|:---:|:---:|
+|1|[경주로 건설](https://programmers.co.kr/learn/courses/30/lessons/67259) |
+|2|[뱀](https://www.acmicpc.net/problem/3190) |
+|3| - |
+|4| - |
