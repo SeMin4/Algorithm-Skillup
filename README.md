@@ -52,6 +52,6 @@
 |번호|문제|
 |:---:|:---:|
 |1|[괄호 추가하기](https://www.acmicpc.net/problem/16637)|
-|2| - |
+|2|[아기상어](https://www.acmicpc.net/problem/16236) |
 |3| - |
 |4| - |
