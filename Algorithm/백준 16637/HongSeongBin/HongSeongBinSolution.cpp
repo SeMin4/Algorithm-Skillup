@@ -2,102 +2,70 @@
 
 using namespace std;
 
-int max_val=-2147000000;
-int cal_size;
+vector<int> arr;
 
-void DFS(int start,int pre,vector<int> cal,vector<int> num, vector<char> calculate)
+
+int find_cnt(int total)
 {
-	if(start>=cal_size)
+	int cnt=1;
+	int sum=0;
+	
+	for(int i=0; i<arr.size() ; i++)
 	{
-		int temp_max;
-		int erase_cnt=0;
+		sum+=arr[i];
 		
-		for(int i=0 ; i<cal.size() ; i++)
+		if(sum>total)
 		{
-			int idx = cal[i]-i;
-			
-			switch(calculate[idx])
-			{
-				case '+':
-					num[idx] = num[idx]+num[idx+1];
-					break;
-				case '-':
-					num[idx] = num[idx]-num[idx+1];
-					break;
-					
-				case '*':
-					num[idx] = num[idx]*num[idx+1];
-					break;
-			}
-			num.erase(num.begin()+idx+1);
-			calculate.erase(calculate.begin()+idx);
-		
-		}
-		
-		temp_max = num[0];
-		
-		for(int i=0 ; i<calculate.size() ; i++)
-		{
-			switch(calculate[i])
-			{
-				case '+':
-					temp_max += num[i+1];
-					break;
-				case '-':
-					temp_max -= num[i+1];
-					break;
-					
-				case '*':
-					temp_max *= num[i+1];
-					break;
-			}
-		}
-		
-		if(temp_max>max_val)
-			max_val=temp_max;
-		return;
+			sum=0;
+			cnt++;
+			i--;	
+		}	
 	}
 	
-	if(pre == 1)
-	{
-		DFS(start+1,0,cal,num,calculate);
-	}
-	else
-	{
-		cal.push_back(start);
-		DFS(start+1,1,cal,num,calculate);
-		cal.pop_back();
-		DFS(start+1,0,cal,num,calculate);	
-	}
-
+	return cnt;
+	
 }
 
 int main(void)
 {	
-	int n;
-	vector<int> cal;
-	vector<int> num;
-	vector<char> calculate;
+	int n,m;
+	int lt=1;
+	int rt=0;
+	int min_val=2147000000;
 	
-	cin>>n;
-	
-	cal_size = n/2;
+	cin>>n>>m;
 	
 	for(int i=0 ; i<n ; i++)
 	{
-		char temp;
+		int temp;
 		
 		cin>>temp;
-		
-		if(temp>='0'&&temp<='9')
-		{
-			num.push_back(temp-'0');
-		}
-		else
-			calculate.push_back(temp);
+		rt+=temp;
+		arr.push_back(temp);	
 	}
 	
-	DFS(0,0,cal,num,calculate);
 	
-	cout<<max_val;
+	while(lt<=rt)
+	{
+		int mid;
+		int res;
+		
+		mid = (lt+rt)/2;
+		
+		res = find_cnt(mid);
+		
+		if(res<=m)
+		{
+			rt = mid-1;
+			if(min_val>mid)
+				min_val=mid;
+		}
+		else
+		{
+			lt = mid+1;
+		}
+	}
+	
+	cout<<min_val;
+	
 }
