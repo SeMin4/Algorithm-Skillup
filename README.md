@@ -46,3 +46,12 @@
 |2|[뱀](https://www.acmicpc.net/problem/3190) |
 |3| - |
 |4| - |
+
+### 3주차
+
+|번호|문제|
+|:---:|:---:|
+|1|[괄호 추가하기](https://www.acmicpc.net/problem/16637)|
+|2|[아기상어](https://www.acmicpc.net/problem/16236) |
+|3|[색칠 공부](https://www.acmicpc.net/problem/9521)|
+|4|[집배원 한상덕](https://www.acmicpc.net/problem/2842)|
