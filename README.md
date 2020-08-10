@@ -62,6 +62,6 @@
 |번호|문제|
 |:---:|:---:|
 |1|[외벽 점검](https://programmers.co.kr/learn/courses/30/lessons/60062)|
-|2| - |
+|2|[주사위 굴리기](https://www.acmicpc.net/problem/14499) - |
 |3| - |
 |4| - |
