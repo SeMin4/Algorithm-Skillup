@@ -49,7 +49,12 @@ int bfs(Data start_pos)
 			if(cur_cnt == find_cnt)
 				return 1;	
 		}
-
+		
+	//	if(cur_pos.x==0 && cur_pos.y==0)
+			//cout<<min_max[lt]<<" "<<min_max[rt]<<"\n";
+		//cout<<cur_pos.x<<" "<<cur_pos.y<<"\n";
+		
+		
 		for(int i=0 ; i<8 ; i++)
 		{
 			int next_x = cur_pos.x+dx[i];
@@ -99,16 +104,23 @@ int main(){
 
 	sort(min_max.begin(),min_max.end());
 	min_max.erase(unique(min_max.begin(),min_max.end()),min_max.end());
+//	
+//	for(int i=0 ; i<min_max.size() ; i++)
+//		cout<<min_max[i]<<" ";
 
 	while(lt<min_max.size() && rt<min_max.size())
 	{
 		int res = bfs(start_pos);
 		
+	//	cout<<min_max[lt]<<" "<<min_max[rt]<<"\n";
+		
 		if(res==1)
 		{
 			if(min_dis > min_max[rt]-min_max[lt])
+			{
+				//cout<<min_max[lt]<<" "<<min_max[rt]<<"\n";
 				min_dis = min_max[rt]-min_max[lt];
-			
+			}
 			lt++;
 		}
 		else
@@ -117,5 +129,6 @@ int main(){
 		}
 	}
 
+//	cout<<min_max[lt]<<" "<<min_max[rt]<<"\n";
 	cout<<min_dis;
 }
