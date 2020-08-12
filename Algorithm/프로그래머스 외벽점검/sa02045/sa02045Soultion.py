@@ -12,4 +12,4 @@ def solution(n,weak,dist):
         for number_person in range(2,len(weak)+1):
             for friend in dist:
 
-
+#풀이공부하고 완벽히 이해후 이번주까지 올리겠습니다.
