@@ -64,4 +64,4 @@
 |1|[외벽 점검](https://programmers.co.kr/learn/courses/30/lessons/60062)|
 |2|[주사위 굴리기](https://www.acmicpc.net/problem/14499)|
 |3|[가르침](https://www.acmicpc.net/problem/1062)|
-|4| - |
+|4|[연구소](https://www.acmicpc.net/problem/14502)|
