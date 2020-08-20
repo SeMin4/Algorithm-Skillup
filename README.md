@@ -71,6 +71,6 @@
 |번호|문제|
 |:---:|:---:|
 |1|[가사 검색](https://programmers.co.kr/learn/courses/30/lessons/60060)|
-|2| - |
+|2|[섬](https://www.acmicpc.net/problem/16000)|
 |3| - |
 |4| - |
