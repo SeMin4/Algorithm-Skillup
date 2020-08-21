@@ -65,3 +65,12 @@
 |2|[주사위 굴리기](https://www.acmicpc.net/problem/14499)|
 |3|[가르침](https://www.acmicpc.net/problem/1062)|
 |4|[연구소](https://www.acmicpc.net/problem/14502)|
+
+### 5주차
+
+|번호|문제|
+|:---:|:---:|
+|1|[가사 검색](https://programmers.co.kr/learn/courses/30/lessons/60060)|
+|2|[섬](https://www.acmicpc.net/problem/16000)|
+|3| - |
+|4| - |
