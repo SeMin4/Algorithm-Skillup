@@ -74,3 +74,13 @@
 |2|[섬](https://www.acmicpc.net/problem/16000)|
 |3| - |
 |4| - |
+
+
+### 6주차
+
+|번호|문제|
+|:---:|:---:|
+|1|[불량 사용자](https://programmers.co.kr/learn/courses/30/lessons/64064)|
+|2| - |
+|3| - |
+|4| - |
