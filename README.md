@@ -72,7 +72,7 @@
 |:---:|:---:|
 |1|[가사 검색](https://programmers.co.kr/learn/courses/30/lessons/60060)|
 |2|[섬](https://www.acmicpc.net/problem/16000)|
-|3|[불량 사용자]|(https://programmers.co.kr/learn/courses/30/lessons/64064)
+|3|[불량 사용자](https://programmers.co.kr/learn/courses/30/lessons/64064)|
 |4| - |
 
 

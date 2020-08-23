@@ -1,5 +1,6 @@
 #첫번째 풀이 - 효율성 통과X
-"""def solution(words, queries):
+"""
+def solution(words, queries):
     check_list =[]
     words = sorted(words)
     for query in queries:
