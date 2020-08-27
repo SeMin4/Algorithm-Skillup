@@ -82,5 +82,5 @@
 |:---:|:---:|
 |1|[불량 사용자](https://programmers.co.kr/learn/courses/30/lessons/64064)|
 |2|[톱니바퀴](https://www.acmicpc.net/problem/14891)|
-|3| - |
-|4| - |
+|3|[등산](https://www.acmicpc.net/problem/1486)|
+|4|[마피아 게임](https://www.acmicpc.net/problem/10542)|
