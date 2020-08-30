@@ -91,6 +91,6 @@
 |번호|문제|
 |:---:|:---:|
 |1|[블록 이동하기](https://programmers.co.kr/learn/courses/30/lessons/60063)|
-|2| - |
+|2|[주사위 윳놀이](https://www.acmicpc.net/problem/17825)|
 |3| - |
 |4| - |
