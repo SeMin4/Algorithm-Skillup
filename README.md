@@ -93,4 +93,4 @@
 |1|[블록 이동하기](https://programmers.co.kr/learn/courses/30/lessons/60063)|
 |2|[주사위 윳놀이](https://www.acmicpc.net/problem/17825)|
 |3|[숨바꼭질 5](https://www.acmicpc.net/problem/17071)|
-|4| - |
+|4|[보행자천국](https://programmers.co.kr/learn/courses/30/lessons/1832)|
