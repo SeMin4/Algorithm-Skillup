@@ -1,4 +1,5 @@
-"""def solve(K,N,T):
+"""
+def solve(K,N,T):
     while True:
         brother_location = count_brother_location(K,T)
         subin_location = count_subin_location(brother_location,N,T)
@@ -50,17 +51,20 @@ from collections import deque
 visited = [[-1 for _ in range(500000 + 1)] for _ in range(2)]
 
 def bfs(q:deque):
+
     while len(q)!=0:
+
         N , time = q.popleft()
         n_list = [N-1 , N+1 , 2*N]
+
         for n in n_list:
             if 0<= n <= 500000 and visited[(time+1)%2][n] == -1:
                 visited[(time+1)%2][n] = time + 1
                 q.append((n , time+1))
 
 if __name__ == "__main__":
-    N , K = map(int, input().split())
 
+    N , K = map(int, input().split())
     q = deque()
     q.append((N,0))
     visited[0][N] = 0
@@ -68,11 +72,10 @@ if __name__ == "__main__":
     #초기 시간 = 0, 답 = -1
     time = 0
     answer = -1
-
     #bfs로 수빈(N)이 갈수 있는 모든 지점체크하고 최초방문시간을 저장
     bfs(q)
-
     #시간을 늘려가면서 수빈이 방문한 지점을 동생이 방문하는지 체크
+
     while True:
         if K > 500000:
             break
@@ -81,9 +84,9 @@ if __name__ == "__main__":
         if visited[time%2][K] != -1 and visited[time%2][K] <= time: #time이 3이면 visited[1][K] = (6 <= 3):
             answer = time
             break
-        
+
         # 수빈이 방문안했던 자리를 방문했다면 다음 time 동생이 방문하는 자리 계산
         time +=1 # 1, 2, 3, 4, 5
         K += time # 1 + 2 + 3 + 4 + 5
-    
+
     print(answer)

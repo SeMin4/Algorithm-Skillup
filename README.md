@@ -75,7 +75,6 @@
 |3| - |
 |4| - |
 
-
 ### 6주차
 
 |번호|문제|
@@ -84,7 +83,6 @@
 |2|[톱니바퀴](https://www.acmicpc.net/problem/14891)|
 |3|[등산](https://www.acmicpc.net/problem/1486)|
 |4|[마피아 게임](https://www.acmicpc.net/problem/10542)|
-
 
 ### 7주차
 
