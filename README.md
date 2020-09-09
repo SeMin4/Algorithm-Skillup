@@ -75,7 +75,6 @@
 |3| - |
 |4| - |
 
-
 ### 6주차
 
 |번호|문제|
@@ -85,7 +84,6 @@
 |3|[등산](https://www.acmicpc.net/problem/1486)|
 |4|[마피아 게임](https://www.acmicpc.net/problem/10542)|
 
-
 ### 7주차
 
 |번호|문제|
@@ -93,6 +91,9 @@
 |1|[블록 이동하기](https://programmers.co.kr/learn/courses/30/lessons/60063)|
 |2|[주사위 윳놀이](https://www.acmicpc.net/problem/17825)|
 |3|[숨바꼭질 5](https://www.acmicpc.net/problem/17071)|
+<<<<<<< HEAD
+|4|[보행자천국](https://programmers.co.kr/learn/courses/30/lessons/1832)|
+=======
 |4|[보행자천국](https://programmers.co.kr/learn/courses/30/lessons/1832)|
 
 
@@ -104,3 +105,4 @@
 |2|[감시](https://www.acmicpc.net/problem/15683)|
 |3| - |
 |4| - |
+>>>>>>> upstream/master
