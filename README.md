@@ -91,9 +91,6 @@
 |1|[블록 이동하기](https://programmers.co.kr/learn/courses/30/lessons/60063)|
 |2|[주사위 윳놀이](https://www.acmicpc.net/problem/17825)|
 |3|[숨바꼭질 5](https://www.acmicpc.net/problem/17071)|
-<<<<<<< HEAD
-|4|[보행자천국](https://programmers.co.kr/learn/courses/30/lessons/1832)|
-=======
 |4|[보행자천국](https://programmers.co.kr/learn/courses/30/lessons/1832)|
 
 
@@ -104,5 +101,4 @@
 |1|[탈옥](https://www.acmicpc.net/problem/9376)|
 |2|[감시](https://www.acmicpc.net/problem/15683)|
 |3|[인구이동](https://www.acmicpc.net/problem/16234)|
-|4| - |
->>>>>>> upstream/master
+|4|[역사](https://www.acmicpc.net/problem/1613)|
