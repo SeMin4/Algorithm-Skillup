@@ -102,3 +102,13 @@
 |2|[감시](https://www.acmicpc.net/problem/15683)|
 |3|[인구이동](https://www.acmicpc.net/problem/16234)|
 |4|[역사](https://www.acmicpc.net/problem/1613)|
+
+
+### 9주차
+
+|번호|문제|
+|:---:|:---:|
+|1|[사회망 서비스(SNS)](https://www.acmicpc.net/problem/2533)|
+|2|[2차원배열과연산](https://www.acmicpc.net/problem/17140)|
+|3| - |
+|4| - |
