@@ -109,5 +109,4 @@ while is_open:
                 y_x = union_q.popleft()
                 input_map[y_x[0]][y_x[1]] = avr
 
-print(cnt)
-print(input_map)
+print(cnt-1)
