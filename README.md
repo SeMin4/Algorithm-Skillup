@@ -112,3 +112,13 @@
 |2|[2차원배열과연산](https://www.acmicpc.net/problem/17140)|
 |3|[마피아](https://www.acmicpc.net/problem/1079)|
 |4|[다리 만들기 2](https://www.acmicpc.net/problem/17472)|
+
+
+### 10주차
+
+|번호|문제|
+|:---:|:---:|
+|1|[신입 사원](https://www.acmicpc.net/problem/1946)|
+|2| - |
+|3| - |
+|4| - |
