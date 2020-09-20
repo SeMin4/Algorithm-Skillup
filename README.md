@@ -119,6 +119,6 @@
 |번호|문제|
 |:---:|:---:|
 |1|[신입 사원](https://www.acmicpc.net/problem/1946)|
-|2| - |
+|2|[전깃줄 - 2](https://www.acmicpc.net/problem/2568)|
 |3| - |
 |4| - |
