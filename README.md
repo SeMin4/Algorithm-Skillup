@@ -111,6 +111,9 @@
 |1|[사회망 서비스(SNS)](https://www.acmicpc.net/problem/2533)|
 |2|[2차원배열과연산](https://www.acmicpc.net/problem/17140)|
 |3|[마피아](https://www.acmicpc.net/problem/1079)|
+<<<<<<< HEAD
+|4|[다리 만들기2] |(https://www.acmicpc.net/problem/17472)
+=======
 |4|[다리 만들기 2](https://www.acmicpc.net/problem/17472)|
 
 
@@ -122,3 +125,4 @@
 |2|[전깃줄 - 2](https://www.acmicpc.net/problem/2568)|
 |3| - |
 |4| - |
+>>>>>>> upstream/master
