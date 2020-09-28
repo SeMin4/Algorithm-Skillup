@@ -129,6 +129,6 @@
 |번호|문제|
 |:---:|:---:|
 |1|[보석쇼핑](https://programmers.co.kr/learn/courses/30/lessons/67258)|
-|2|[]()|
+|2|[불 끄기](https://www.acmicpc.net/problem/14939)|
 |3|[]()|
 |4|[]()|
