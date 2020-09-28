@@ -12,8 +12,6 @@ for _ in range(T):
         recruit.append([paper,meeting])
 
     recruit = sorted(recruit , key=lambda x : x[0])
-    print(recruit)
-
     cur_person = recruit[0]
     cnt = 1
 
