@@ -4,7 +4,7 @@
 
 ### 해결 사진
 
-![image](./보석쇼핑.jpg)
+![image](shopping_result.png)
 
 
 ### 주요 알고리즘
