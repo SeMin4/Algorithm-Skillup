@@ -138,6 +138,6 @@
 |번호|문제|
 |:---:|:---:|
 |1|[낚시왕](https://www.acmicpc.net/problem/17143)|
-|2|[]()|
+|2|[발전소](https://www.acmicpc.net/problem/1102)|
 |3|[]()|
 |4|[]()|
