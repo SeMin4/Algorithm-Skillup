@@ -139,5 +139,5 @@
 |:---:|:---:|
 |1|[낚시왕](https://www.acmicpc.net/problem/17143)|
 |2|[발전소](https://www.acmicpc.net/problem/1102)|
-|3|[]()|
+|3|[길 찾기 게임](https://programmers.co.kr/learn/courses/30/lessons/42892)|
 |4|[]()|
