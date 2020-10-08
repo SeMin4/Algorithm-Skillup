@@ -139,10 +139,5 @@
 |:---:|:---:|
 |1|[낚시왕](https://www.acmicpc.net/problem/17143)|
 |2|[발전소](https://www.acmicpc.net/problem/1102)|
-<<<<<<< HEAD
-|3|[]()|
-|4|[준오는 최종인재야!!](https://www.acmicpc.net/problem/14657)|
-=======
 |3|[길 찾기 게임](https://programmers.co.kr/learn/courses/30/lessons/42892)|
 |4|[준오는 최종인재야!!](https://www.acmicpc.net/problem/14657)|
->>>>>>> a5e51decaff71e32073e40c265a00ae61d488d1f
