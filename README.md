@@ -148,6 +148,6 @@
 |번호|문제|
 |:---:|:---:|
 |1|[임계경로](https://www.acmicpc.net/problem/1948)|
-|2| - |
+|2|[경로 찾기](https://www.acmicpc.net/problem/2479)|
 |3| - |
 |4| - |
