@@ -141,3 +141,13 @@
 |2|[발전소](https://www.acmicpc.net/problem/1102)|
 |3|[길 찾기 게임](https://programmers.co.kr/learn/courses/30/lessons/42892)|
 |4|[준오는 최종인재야!!](https://www.acmicpc.net/problem/14657)|
+
+
+### 13주차
+
+|번호|문제|
+|:---:|:---:|
+|1|[임계경로](https://www.acmicpc.net/problem/1948)|
+|2| - |
+|3| - |
+|4| - |
