@@ -150,4 +150,4 @@
 |1|[임계경로](https://www.acmicpc.net/problem/1948)|
 |2|[경로 찾기](https://www.acmicpc.net/problem/2479)|
 |3|[뉴스 전하기](https://www.acmicpc.net/problem/1135)|
-|4| - |
+|4|[추석 트래픽] |(https://programmers.co.kr/learn/courses/30/lessons/17676)
